@@ -1,0 +1,15 @@
+1ca8287edac86f035cfa4d847eade45e *DESCRIPTION
+d81e1bdaf98bc4d121c93bcfc52fee61 *NAMESPACE
+cbe7f891ee81846b4ffa1ca08f5f662f *R/Banded_Chol.R
+d742668c08fd1132308886784af2c36d *R/Banded_Chol_CV.R
+4034d7c78c658452a8cfe4e410821f65 *R/Banded_Sample.R
+8b3ba4a822067a7be6ef13600688be71 *R/Banded_Sample_CV.R
+eab6477965a222198e814d6d09fe7b95 *R/RcppExports.R
+0ad8e7bdb45473e20680d37014ef3438 *man/Banded.Chol.CV.Rd
+48f2011622ec1d8d72642712a0d16352 *man/Banded.Chol.Rd
+4fddddec07004d869c39726f771624b2 *man/Banded.Sample.CV.Rd
+2bed1f3969c067450bcff1590bc7fa83 *man/Banded.Sample.Rd
+d2fd695ee3f8ef6c6a0775f52f70799c *man/FastBandChol-package.Rd
+8d46d69896a1f1d31ed76035a0e49d67 *src/Makevars.win
+0f0a30fe333ba5190f15454d0e3422bd *src/Mod_GS_Banded.cpp
+523a203a1b0f6b27ab852efc32523414 *src/RcppExports.cpp
