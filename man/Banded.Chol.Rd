@@ -1,20 +1,20 @@
 
-\name{Banded.Chol}
-\alias{Banded.Chol}
+\name{banded.chol}
+\alias{banded.chol}
 \title{Computes estimate of covariance matrix by banding the Cholesky factor}
 \usage{
-Banded.Chol(X, bandwidth, centered = FALSE)
+banded.chol(X, bandwidth, centered = FALSE)
 }
 \arguments{
-\item{X}{an n by p data matrix}
+\item{X}{A data matrix with \eqn{n} rows and \eqn{p} columns. Rows are assumed to be independent realizations from a \eqn{p}-variate distribution with covariance \eqn{\Sigma}.}
 
-\item{bandwidth}{an integer less than n-1}
+\item{bandwidth}{A positive integer. Must be less than \eqn{n-1} and \eqn{p-1}.}
 
-\item{centered}{TRUE/FALSE; is data matrix centered?}
+\item{centered}{Logical. Is data matrix centered? Default is \code{centered = FALSE}}
 }
 \value{
 A list with
-\item{est}{estimated covariance matrix}
+\item{est}{The estimated covariance matrix.}
 }
 \description{
 Computes estimate of covariance matrix by banding the Cholesky factor using a modified Gram Schmidt algorithm implemented in RcppArmadillo. 
@@ -38,6 +38,6 @@ Sigma.sqrt = eo1$vec\%*\%diag(eo1$val^.5)\%*\%t(eo1$vec)
 X = t(Sigma.sqrt\%*\%matrix(rnorm(n*p), nrow=p, ncol=n))
 
 ## compute estimate
-out1 = Banded.Chol(X, bandwidth=4)
+out1 = banded.chol(X, bandwidth=4)
 }
 

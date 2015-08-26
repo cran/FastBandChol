@@ -44,8 +44,8 @@ Sigma.sqrt = eo1$vec\%*\%diag(eo1$val^.5)\%*\%t(eo1$vec)
 X = t(Sigma.sqrt\%*\%matrix(rnorm(n*p), nrow=p, ncol=n))
 
 ## compute estimates
-est.sample = Banded.Sample(X, bandwidth=4)$est
-est.chol = Banded.Chol(X, bandwidth=4)$est
+est.sample = banded.sample(X, bandwidth=4)$est
+est.chol = banded.chol(X, bandwidth=4)$est
 
 
 }

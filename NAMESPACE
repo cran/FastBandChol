@@ -3,7 +3,7 @@ useDynLib(FastBandChol)
 
 import(Rcpp)
 
-export(Banded.Chol)
-export(Banded.Chol.CV)
-export(Banded.Sample)
-export(Banded.Sample.CV)
+export(banded.chol)
+export(banded.chol.cv)
+export(banded.sample)
+export(banded.sample.cv)

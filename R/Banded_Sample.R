@@ -7,7 +7,7 @@
 #' @return est the banded estimate
 
 
-Banded.Sample = function(X, bandwidth, centered=FALSE){
+banded.sample = function(X, bandwidth, centered=FALSE){
   n = nrow(X)
   p = ncol(X)
 

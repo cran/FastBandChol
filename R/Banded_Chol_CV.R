@@ -9,7 +9,7 @@
 #' @return bandwidth.min the bandwidth minimizing cv error
 #' @return est the banded estimate
 
-Banded.Chol.CV = function(X, bandwidth, folds=3, est.eval=TRUE, Frob = TRUE){
+banded.chol.cv = function(X, bandwidth, folds=3, est.eval=TRUE, Frob = TRUE){
   if(folds!=3){
     f = folds
   } else {
@@ -38,7 +38,7 @@ Banded.Chol.CV = function(X, bandwidth, folds=3, est.eval=TRUE, Frob = TRUE){
     err = numeric(length=nk)
 
     for(i in 1:nk){
-      est = Banded.Chol(x.train, bandwidth=bandwidth[i], centered=FALSE)$est
+      est = banded.chol(x.train, bandwidth=bandwidth[i], centered=FALSE)$est
       if(!Frob){
         err[i] = abs(max(eigen(S.test - est)$val))
       } else {
@@ -57,7 +57,7 @@ Banded.Chol.CV = function(X, bandwidth, folds=3, est.eval=TRUE, Frob = TRUE){
   if(!est.eval){
     return(list("bandwidth.min" = bandwidth.min))
     } else{
-      est = Banded.Chol(X, bandwidth.min, centered=FALSE)$est
+      est = banded.chol(X, bandwidth.min, centered=FALSE)$est
       return(list("est" = est, "bandwidth.min" = bandwidth.min))
     }
 }

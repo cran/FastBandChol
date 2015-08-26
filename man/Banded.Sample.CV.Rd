@@ -1,20 +1,22 @@
-\name{Banded.Sample.CVV}
-\alias{Banded.Sample.CV}
-\title{Selects bandwidth for sample covariance matrix cross validation}
+\name{banded.sample.cv}
+\alias{banded.sample.cv}
+\title{Selects bandwidth for sample covariance matrix by cross validation}
 \usage{
-Banded.Sample.CV(X, bandwidth, folds = 3, est.eval = TRUE, Frob = TRUE)
+banded.sample.cv(X, bandwidth, folds = 3, est.eval = TRUE, Frob = TRUE)
 }
 \arguments{
-\item{X}{an n by p data matrix}
+\item{X}{A data matrix with \eqn{n} rows and \eqn{p} columns. Rows are assumed to be independent realizations from a \eqn{p}-variate distribution with covariance \eqn{\Sigma}.}
 
-\item{bandwidth}{a vector of candidate bandwidths}
+\item{bandwidth}{A vector of candidate bandwidths. Candidate bandwidths can only positive integers such that the maximum is less than \eqn{p-1}}.
 
-\item{folds}{number of folds for CV; default is 3}
 
-\item{est.eval}{TRUE/FALSE should the solution at the minizing tuning paramter be computed}
+\item{folds}{The number of folds used for cross validation. Default is \code{folds =3}.}
 
-\item{Frob}{TRUE/FALSE; which type of norm used for evaluting CV error; FALSE sets to operator norm}
+\item{est.eval}{Logical: \code{est.eval = TRUE} returns a list with both the selected bandwidth and the estimated covariance matrix. \code{est.eval=FALSE} returns a list with only the selected bandwidth. The default is \code{est.eval = TRUE}.}
+
+\item{Frob}{Logical: \code{Frob = TRUE} uses squared Frobenius norm loss for cross-validation. \code{Frob = FALSE} uses operator norm loss. Default is \code{Frob = TRUE}.}
 }
+
 \value{
 A list with
 \item{bandwidth.min}{the bandwidth minimizing cv error}
@@ -44,6 +46,6 @@ X = t(Sigma.sqrt\%*\%matrix(rnorm(n*p), nrow=p, ncol=n))
 
 ## perform cross validation
 k = 4:7
-out2.cv = Banded.Sample.CV(X, bandwidth=k, folds=5)
+out2.cv = banded.sample.cv(X, bandwidth=k, folds=5)
 }
 

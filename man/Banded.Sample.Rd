@@ -1,21 +1,21 @@
 
 
-\name{Banded.Sample}
-\alias{Banded.Sample}
+\name{banded.sample}
+\alias{banded.sample}
 \title{Computes banded sample covariance matrix}
 \usage{
-Banded.Sample(X, bandwidth, centered = FALSE)
+banded.sample(X, bandwidth, centered = FALSE)
 }
 \arguments{
-\item{X}{an n times p data matrix}
+\item{X}{A data matrix with \eqn{n} rows and \eqn{p} columns. Rows are assumed to be independent realizations from a \eqn{p}-variate distribution with covariance \eqn{\Sigma}.}
 
-\item{bandwidth}{nonnegative integer; less than n-1}
+\item{bandwidth}{A positive integer. Must be less than \eqn{p-1}.}.
 
-\item{centered}{TRUE/FALSE is data matrix centered?}
+\item{centered}{Logical. Is data matrix centered? Default is \code{centered = FALSE}}
 }
 \value{
 A list with
-\item{est}{the banded sample covariance estimate}
+\item{est}{The estimated covariance matrix.}
 }
 \description{
 Estimates a covariance matrix by banding the sample covariance matrix
@@ -39,6 +39,6 @@ Sigma.sqrt = eo1$vec\%*\%diag(eo1$val^.5)\%*\%t(eo1$vec)
 X = t(Sigma.sqrt\%*\%matrix(rnorm(n*p), nrow=p, ncol=n))
 
 ## compute estimate
-out2 = Banded.Sample(X, bandwidth=4)
+out2 = banded.sample(X, bandwidth=4)
 }
 

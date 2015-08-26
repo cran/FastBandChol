@@ -10,7 +10,7 @@
 #' @return est the banded estimate
 
 
-Banded.Sample.CV = function(X, bandwidth, folds=3, est.eval=TRUE, Frob=TRUE){
+banded.sample.cv = function(X, bandwidth, folds=3, est.eval=TRUE, Frob=TRUE){
   if(folds!=3){
     f = folds
   } else {
@@ -33,7 +33,7 @@ Banded.Sample.CV = function(X, bandwidth, folds=3, est.eval=TRUE, Frob=TRUE){
     err = numeric(length=nk)
 
     for(i in 1:nk){
-      est = Banded.Sample(x.train, bandwidth=bandwidth[i], centered=FALSE)$est
+      est = banded.sample(x.train, bandwidth=bandwidth[i], centered=FALSE)$est
       if(!Frob){
         err[i] = abs(max(eigen(S.test - est)$val))
       } else {
@@ -52,7 +52,7 @@ Banded.Sample.CV = function(X, bandwidth, folds=3, est.eval=TRUE, Frob=TRUE){
   if(!est.eval){
     return(list("bandwidth.min" = bandwidth.min))
   } else {
-    est = Banded.Sample(X, bandwidth=bandwidth.min, centered=FALSE)$est
+    est = banded.sample(X, bandwidth=bandwidth.min, centered=FALSE)$est
     return(list("est" = est, "bandwidth.min" = bandwidth.min))
   }
 }

@@ -1,25 +1,26 @@
-\name{Banded.Chol.CV}
-\alias{Banded.Chol.CV}
+\name{banded.chol.cv}
+\alias{banded.chol.cv}
 \title{Selects bandwidth for Cholesky factorization by cross validation}
 \usage{
-Banded.Chol.CV(X, bandwidth, folds = 3, est.eval = TRUE, Frob = TRUE)
+banded.chol.cv(X, bandwidth, folds = 3, est.eval = TRUE, Frob = TRUE)
 }
 \arguments{
-\item{X}{an n by p  data matrix, not centered}
+\item{X}{A data matrix with \eqn{n} rows and \eqn{p} columns. Rows are assumed to be independent realizations from a \eqn{p}-variate distribution with covariance \eqn{\Sigma}.}
 
-\item{bandwidth}{a vector of candidate bandwidths; max less than (folds-1)*n/folds - 1}
+\item{bandwidth}{A vector of candidate bandwidths. Candidate bandwidths can only positive integers such that the maximum is less than the sample size outside of the \eqn{k}th fold.}
 
-\item{folds}{number of folds for CV; default is 3}
+\item{folds}{The number of folds used for cross validation. Default is \code{folds =3}.}
 
-\item{est.eval}{TRUE/FALSE; should the solution at the minizing tuning paramter be computed?}
+\item{est.eval}{Logical: \code{est.eval = TRUE} returns a list with both the selected bandwidth and the estimated covariance matrix. \code{est.eval=FALSE} returns a list with only the selected bandwidth. The default is \code{est.eval = TRUE}.}
 
-\item{Frob}{TRUE/FALSE; which type of norm used for evaluting CV error; TRUE (default) sets to Frobenius norm; FALSE sets to operator norm}
+\item{Frob}{Logical: \code{Frob = TRUE} uses squared Frobenius norm loss for cross-validation. \code{Frob = FALSE} uses operator norm loss. Default is \code{Frob = TRUE}.}
 }
+
 \value{
 a list with
-\item{bandwidth.min}{the bandwidth minimizing cross-validation error}
+\item{bandwidth.min}{The bandwidth minimizing cross-validation error.}
 
-\item{est}{estimated covariance matrix at bandwidth.min}
+\item{est}{The estimated covariance matrix computed with \code{bandwidth=bandwidth.min}.}
 }
 \description{
 Selects bandwidth for Cholesky factorization by k-fold cross validation
@@ -44,7 +45,7 @@ X = t(Sigma.sqrt\%*\%matrix(rnorm(n*p), nrow=p, ncol=n))
 
 ## perform cross validation
 k = 4:7
-out1.cv = Banded.Chol.CV(X, bandwidth=k, folds = 5)
+out1.cv = banded.chol.cv(X, bandwidth=k, folds = 5)
 
 }
 

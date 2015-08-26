@@ -8,7 +8,7 @@
 
 
 
-Banded.Chol = function(X, bandwidth, centered=FALSE){
+banded.chol = function(X, bandwidth, centered=FALSE){
   n = nrow(X)
   p = ncol(X)
   
